@@ -2,36 +2,28 @@ import './App.css';
 import { gql, ApolloProvider, ApolloClient, InMemoryCache } from '@apollo/client';
 import { relayStylePagination } from "@apollo/client/utilities"
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import StarWarsPeopleList from './screens/StarWarsPeopleList'
-import StarWarsPersonDetail from './screens/StarWarsPersonDetail'
+import StarWarsList from './screens/StarWarsList';
+import StarWarsDetail from './screens/StarWarsDetail';
+import StarWarsHome from './screens/StarWarsHome';
+
 
 const cache = new InMemoryCache({
   typePolicies: {
     Query: {
       fields: {
         allPeople: relayStylePagination(),
+        allStarships: relayStylePagination(),
       },
     },
   },
 });
 
-/* const query = gql`
-  query luke {
-    person @rest(type: "Person", path: "people/1/") {
-      name
-    }
-  }
-`; */
 
 const client = new ApolloClient({
   uri: 'https://swapi-graphql.netlify.app/.netlify/functions/index',
   cache: cache
 });
 
-/* 
-client.query({ query }).then(response => {
-  console.log(response.data.name);
-}); */
 
 function App() {
   return (
@@ -39,8 +31,9 @@ function App() {
       <BrowserRouter>
         <div className="App">
           <Switch>
-            <Route exact path="/" component={StarWarsPeopleList}/>
-            <Route exact path="/person/:id" component={StarWarsPersonDetail}/>
+            <Route exact path="/" component={StarWarsHome}/>
+            <Route exact path="/list/:object" component={StarWarsList}/>
+            <Route exact path="/detail/:object/:id" component={StarWarsDetail}/>
           </Switch>
         </div>
       </BrowserRouter>

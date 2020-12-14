@@ -43,7 +43,7 @@
   text-align: center;
 }
 
-.person-cell, .data-cell {
+.item-cell, .data-cell {
   text-align: left;
   display: flex;
   justify-content: space-between;
@@ -64,7 +64,7 @@ a {
 
 .data-cell {
   display: flex;
-  justify-content: ;
+  justify-content: space-between;
 }
 
 .section-header {

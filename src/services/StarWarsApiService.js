@@ -23,6 +23,24 @@ export const STAR_WARS_PEOPLE = gql`
   }
 `;
 
+export const STAR_WARS_STARSHIPS = gql`
+  query StarWarsStarships($cursor: String){
+    allStarships(first: 5, after: $cursor) {
+      edges{
+        node{
+            id
+            name
+            starshipClass
+        }
+      }
+      pageInfo {
+        endCursor
+        hasNextPage
+      }
+    } 
+  }
+`;
+
 export const STAR_WARS_PERSON = gql`
   query Person($id: ID){
     person(id: $id){
@@ -46,18 +64,25 @@ export const STAR_WARS_PERSON = gql`
   }
 `;
 
-
-/* export const STAR_WARS_PEOPLE = gql`
-    query {
-      allPeople(first: 5, after: "YXJyYXljb25uZWN0aW9uOjE=") {
-        edges{
-          cursor
-            node{
-                id
-                name
-            }
-          }
-        } 
-    }
+export const STAR_WARS_STARSHIP = gql`
+  query Starship($id: ID){
+    starship(id: $id){
+      name
+      model
+      costInCredits
+      length
+      crew
+      cargoCapacity
+      filmConnection{
+        films {
+          title
+        }
+      }
+      pilotConnection{
+        pilots{
+          name
+        }
+      }
+    } 
+  }
 `;
- */
