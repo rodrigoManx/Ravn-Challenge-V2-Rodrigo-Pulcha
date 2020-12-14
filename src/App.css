@@ -14,7 +14,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: white;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -35,4 +35,108 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.cell {
+  padding: 16px;
+  width: -webkit-fill-available;
+  text-align: center;
+}
+
+.person-cell, .data-cell {
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+}
+
+a {
+  text-decoration: none;
+}
+
+.loading-cell {
+  display: flex;
+  justify-content: center;
+}
+
+.loading-cell h2 {
+  margin-left: 8px;
+}
+
+.data-cell {
+  display: flex;
+  justify-content: ;
+}
+
+.section-header {
+  padding: 32px 16px 8px 16px ;
+  width: -webkit-fill-available;
+  text-align: left;
+}
+
+h2 {
+  font-size: 17pt;
+  color: rgba(0, 0, 0, 1);
+  margin: 0;
+}
+
+h2.low-emphasis {
+  color: rgba(0, 0, 0, 0.3)
+}
+
+h2.high-emphasis {
+  color: rgba(235, 87, 87, 1)
+}
+
+.header {
+  background-color: #121212;
+  width: -webkit-fill-available;
+  text-align: center;
+  padding: 16px;
+  min-height: 25.6px;
+}
+
+.header h2 {
+  color: #ffffff;
+}
+
+p {
+  font-size: 14pt;
+  color: rgba(0, 0, 0, 1);
+  margin: 0;
+}
+
+p.low-emphasis {
+  color: rgba(0, 0, 0, 0.5)
+}
+
+.activity-indicator {
+  width: 19pt;
+  -webkit-animation:spin 3s linear infinite;
+  -moz-animation:spin 3s linear infinite;
+  animation:spin 3s linear infinite;
+}
+
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+.cell-arrow-right {
+  margin-left: 16px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+hr {
+  margin: 0;
+  margin-left: 16px;
+  margin-right: 16px;
+  width: -webkit-fill-available;
+  border-bottom: 1px solid;
+  border-bottom-color: rgba(9,9,9,0.0);
+  display: none;
+}
+
+.back-arrow {
+  float: left;
+  height: 17pt;
 }
