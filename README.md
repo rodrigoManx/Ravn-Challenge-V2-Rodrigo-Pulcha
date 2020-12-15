@@ -13,12 +13,12 @@ This project is a web application that consumes the Star Wars GraphQL Api, using
 
 ## Screen Captures
 
-![sc1](https://raw.githubusercontent.com/rodrigoManx/Ravn-Challenge-V2-Rodrigo-Pulcha/master/public/screenCaptures/sc1.jpg)
-![sc2](https://raw.githubusercontent.com/rodrigoManx/Ravn-Challenge-V2-Rodrigo-Pulcha/master/public/screenCaptures/sc2.jpg)
-![sc3](https://raw.githubusercontent.com/rodrigoManx/Ravn-Challenge-V2-Rodrigo-Pulcha/master/public/screenCaptures/sc3.jpg)
-![sc4](https://raw.githubusercontent.com/rodrigoManx/Ravn-Challenge-V2-Rodrigo-Pulcha/master/public/screenCaptures/sc4.jpg)
-![sc5](https://raw.githubusercontent.com/rodrigoManx/Ravn-Challenge-V2-Rodrigo-Pulcha/master/public/screenCaptures/sc5.jpg)
-![sc6](https://raw.githubusercontent.com/rodrigoManx/Ravn-Challenge-V2-Rodrigo-Pulcha/master/public/screenCaptures/sc6.jpg)
+![sc1](./public/screenCaptures/sc1.jpg =250x)
+![sc2](./public/screenCaptures/sc2.jpg =250x)
+![sc3](./public/screenCaptures/sc3.jpg =250x)
+![sc4](./public/screenCaptures/sc4.jpg =250x)
+![sc5](./public/screenCaptures/sc5.jpg =250x)
+![sc6](./public/screenCaptures/sc6.jpg =250x)
 
 ## Assumptions
 
