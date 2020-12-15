@@ -20,6 +20,7 @@ This project is a web application that consumes the Star Wars GraphQL Api, using
 <img src="https://raw.githubusercontent.com/rodrigoManx/Ravn-Challenge-V2-Rodrigo-Pulcha/master/public/screenCaptures/fsc5.jpg" width="250">
 <img src="https://raw.githubusercontent.com/rodrigoManx/Ravn-Challenge-V2-Rodrigo-Pulcha/master/public/screenCaptures/sc6.jpg" width="250">
 </p>
+
 ## Assumptions
 
 Although this is a web application, it is oriented and optimized for mobile devices since they are used more frequently to access the internet in people's daily lives, than for example a personal computer
