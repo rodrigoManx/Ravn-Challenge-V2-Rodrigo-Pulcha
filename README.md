@@ -12,7 +12,7 @@ You must have node.js installed, once installed follow the next steps:
 This project is a web application that consumes the Star Wars GraphQL Api, using the Apollo GraphQL client, to list some of the nodes present in the graph, such as people and spaceships, as well as the details of each of these nodes.
 
 ## Screen Captures
-
+<img src="https://github.com/favicon.ico" width="48">
 ![sc1](https://raw.githubusercontent.com/rodrigoManx/Ravn-Challenge-V2-Rodrigo-Pulcha/master/public/screenCaptures/sc1.jpg width=250)
 ![sc2](https://raw.githubusercontent.com/rodrigoManx/Ravn-Challenge-V2-Rodrigo-Pulcha/master/public/screenCaptures/sc2.jpg =250x)
 ![sc3](https://raw.githubusercontent.com/rodrigoManx/Ravn-Challenge-V2-Rodrigo-Pulcha/master/public/screenCaptures/sc3.jpg =250x)
