@@ -8,12 +8,12 @@ export function DataCell({property, value}) {
     return (
         <React.Fragment>
             <div className={"cell data-cell"}>
-                <div>
+                <div style={{textAlign: "left", width: value !== ""? "50%":"100%"}}>
                     <h2 className={"low-emphasis"}>{property}</h2>
                 </div>
                 {
                     value !== ""? (
-                        <div>
+                        <div style={{textAlign: "right", width: "50%"}}>
                             <h2>{value}</h2>
                         </div>
                     ): (<div/>)
