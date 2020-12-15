@@ -1,4 +1,4 @@
-# Setup and running instructions
+## Setup and running instructions
 
 You must have node.js installed, once installed follow the next steps:
 1. Download or clonde this repository
@@ -11,10 +11,19 @@ You must have node.js installed, once installed follow the next steps:
 
 This project is a web application that consumes the Star Wars GraphQL Api, using the Apollo GraphQL client, to list some of the nodes present in the graph, such as people and spaceships, as well as the details of each of these nodes.
 
-### Assumptions
+## Screen Captures
+
+![sc1](https://raw.githubusercontent.com/rodrigoManx/Ravn-Challenge-V2-Rodrigo-Pulcha/master/public/screenCaptures/sc1.jpg)
+![sc2](https://raw.githubusercontent.com/rodrigoManx/Ravn-Challenge-V2-Rodrigo-Pulcha/master/public/screenCaptures/sc2.jpg)
+![sc3](https://raw.githubusercontent.com/rodrigoManx/Ravn-Challenge-V2-Rodrigo-Pulcha/master/public/screenCaptures/sc3.jpg)
+![sc4](https://raw.githubusercontent.com/rodrigoManx/Ravn-Challenge-V2-Rodrigo-Pulcha/master/public/screenCaptures/sc4.jpg)
+![sc5](https://raw.githubusercontent.com/rodrigoManx/Ravn-Challenge-V2-Rodrigo-Pulcha/master/public/screenCaptures/sc5.jpg)
+![sc6](https://raw.githubusercontent.com/rodrigoManx/Ravn-Challenge-V2-Rodrigo-Pulcha/master/public/screenCaptures/sc6.jpg)
+
+## Assumptions
 
 Although this is a web application, it is oriented and optimized for mobile devices since they are used more frequently to access the internet in people's daily lives, than for example a personal computer
 
-### Technologies used
+## Technologies used
 
 1. React Js Framework
