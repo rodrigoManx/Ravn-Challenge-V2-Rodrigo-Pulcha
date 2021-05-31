@@ -1,36 +1,35 @@
 import React, { Component } from 'react';
 import { StarWarsItemDetail } from '../components/StarWarsItemDetail'
-import { STAR_WARS_PERSON, STAR_WARS_STARSHIP } from '../services/StarWarsApiService';
 
 
 const OBJECTS = {
     person: {
         name: "person",
-        query: STAR_WARS_PERSON,
+        table: "people",
         relations: [
-            {connection: 'vehicleConnection', name: 'vehicles', information: "name", displayName: "Vehicles"},
-            {connection: 'starshipConnection', name: 'starships', information: "name", displayName: "Starships"},
+            {connection: 'vehicles', name: 'vehicles', information: "name", displayName: "Vehicles"},
+            {connection: 'starships', name: 'starships', information: "name", displayName: "Starships"},
         ],
         generalInformation: [
-            { property: 'eyeColor', displayName: "Eye Color"},
-            { property: 'hairColor', displayName: "Hair Color"},
-            { property: 'skinColor', displayName: "Skin Color"},
-            { property: 'birthYear', displayName: "Birth Year"},
+            { property: 'eye_color', displayName: "Eye Color"},
+            { property: 'hair_color', displayName: "Hair Color"},
+            { property: 'skin_color', displayName: "Skin Color"},
+            { property: 'birth_year', displayName: "Birth Year"},
         ]
     },
     starship: {
         name: "starship",
-        query: STAR_WARS_STARSHIP,
+        table: "starship",
         relations: [
-            {connection: 'pilotConnection', name: 'pilots', information: "name", displayName: "Pilots"},
-            {connection: 'filmConnection', name: 'films', information: "title", displayName: "Films"},
+            {connection: 'pilots', name: 'pilots', information: "name", displayName: "Pilots"},
+            {connection: 'films', name: 'films', information: "name", displayName: "Films"},
         ],
         generalInformation: [
             { property: 'model', displayName: "Model"},
-            { property: 'costInCredits', displayName: "Cost in Credits"},
+            { property: 'cost_in_credits', displayName: "Cost in Credits"},
             { property: 'length', displayName: "Length"},
             { property: 'crew', displayName: "Crew"},
-            { property: 'cargoCapacity', displayName: "Capacity"},
+            { property: 'cargo_capacity', displayName: "Capacity"},
         ] 
     }
 }

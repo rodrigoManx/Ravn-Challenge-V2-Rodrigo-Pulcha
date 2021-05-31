@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Header } from '../components/Header';
 import { ItemCell } from "../components/Cells"
 
+
 const LISTS = [
     {
         name: "People from Stat Wars",

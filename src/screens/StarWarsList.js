@@ -1,30 +1,30 @@
 import React, { Component } from 'react';
 import { StarWarsListInfiniteScroll } from '../components/StarWarsListInfiniteScroll';
 import { Header } from '../components/Header';
-import { STAR_WARS_PEOPLE, STAR_WARS_STARSHIPS } from '../services/StarWarsApiService';
+
 
 const OBJECTS = {
     starships: {
         name: "Starships",
-        query: STAR_WARS_STARSHIPS,
+        table: "starship",
         field: "allStarships",
         path: "/detail/starship/",
         pathKey: "id",
         description: (data) => {
-            let starshipClass = data.starshipClass? data.starshipClass : "Unknown";
+            let starshipClass = data.starship_class? data.starship_class : "Unknown";
             starshipClass = starshipClass.charAt(0).toUpperCase() + starshipClass.slice(1)
             return starshipClass + " class";
         }
     },
     people: {
         name: "People",
-        query: STAR_WARS_PEOPLE,
+        table: "people",
         field: "allPeople",
         path: "/detail/person/",
         pathKey: "id",
         description: (data) => {
-            let specie = data.species? data.species.name : "Human";
-            let homeworld = data.homeworld? data.homeworld.name : "Tatooine";
+            let specie = data.species? data.species : "Human";
+            let homeworld = data.homeworld? data.homeworld : "Tatooine";
             return specie + " from " + homeworld;
         }
     },

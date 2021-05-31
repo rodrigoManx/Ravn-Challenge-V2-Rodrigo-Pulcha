@@ -1,14 +1,33 @@
-import { useQuery } from '@apollo/client';
 import React, { useEffect, useState, useRef } from 'react';
 import { NoticeCell, LoadingCell, ItemCell } from "./Cells"
-
+import { fetchList } from '../services/StarWarsApiService';
 
 
 export function StarWarsListInfiniteScroll({object}) {
     const [page, setPage] = useState(1);
     const [locked, setLock] = useState(false);
-    const { loading, error, data, fetchMore } = useQuery(object.query);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(false);
+    const [data, setData] = useState(null);
+    const [items, setItems] = useState([]);
     const loader = useRef(null);
+
+    const getRows = (page) => {
+        fetchList(object.table, page).then(
+            (data) => {
+                setData(data);
+                if (data.results) {
+                    setItems(items.concat(data.results))
+                }
+            }
+        ).catch((error) => {
+            setError(true)
+        }); ;
+    };
+
+    useEffect(() => {
+        getRows();
+    }, []);
 
     useEffect(() => {
         if (!locked){
@@ -29,33 +48,37 @@ export function StarWarsListInfiniteScroll({object}) {
         
         if (target.isIntersecting) { 
             setLock((locked) => true);
-            setPage((page) => page + 1);
+            if (data.next) {
+                setPage(page + 1);
+            }
         }
     }
 
     useEffect(() => {
-        if (data) {
-            fetchMore({
-                variables: {
-                    cursor: data[object.field].pageInfo.endCursor,
-                },
-            }).then((res) => console.log(res), (err) => console.log(err))
+        if (data && data.next) {
+            getRows(page);
         }
     }, [page])
 
-    if (loading) return <LoadingCell/>;
+    /* if (loading && data.next) return <LoadingCell/>; */
     if (error) return <NoticeCell text={"Failed to Load Data"}/>;
-
+    if (!data || data.results.length === 0) return <div></div>
     return (
         <div>
             {
-                data[object.field].edges.map(({ node }, i) => (
-                    <ItemCell key={i} data={node} object={object}/>
+                items.map((item, i) => (
+                    <ItemCell key={i} data={item} object={object}/>
                 ))
             }
-            <div className="loading" ref={loader}>
-                <LoadingCell/>
-           </div>
+            {
+                data.next? (
+                    <div className="loading" ref={loader}>
+                        <LoadingCell/>
+                    </div>
+                ):(
+                    <div className="loading" ref={loader}></div>
+                )
+            }
         </div>
         
     )

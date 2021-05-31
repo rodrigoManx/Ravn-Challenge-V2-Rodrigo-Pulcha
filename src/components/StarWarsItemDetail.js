@@ -1,15 +1,29 @@
-import React from 'react';
-import { useQuery } from '@apollo/client';
+import React, { useEffect, useState, useRef } from 'react';
 import { NoticeCell, LoadingCell } from "./Cells";
 import { InfoSection } from "./InfoSection";
 import { Header } from './Header';
+import { fetchDetail } from '../services/StarWarsApiService';
+
 
 export function StarWarsItemDetail({id, object, screen}) {
-    const { loading, error, data } = useQuery(object.query, {
-        variables: {
-            id: id
-        }
-    });
+    const [error, setError] = useState(false);
+    const [data, setData] = useState(null);
+    const [loading, setLoading] = useState(false);
+
+
+    const getDetail = () => {
+        fetchDetail(object.table, id).then(
+            (data) => {
+                setData(data);
+            }
+        ).catch((error) => {
+            setError(true)
+        }); ;
+    };
+
+    useEffect(() => {
+        getDetail();
+    }, []);
 
     if (loading) return (
         <React.Fragment>
@@ -22,16 +36,19 @@ export function StarWarsItemDetail({id, object, screen}) {
         </React.Fragment>
     )
     
+    if (!data) {
+        return <div></div>
+    }
     return (
         <div>
-            <Header title={data[object.name].name} canBack={true}/>
-            <InfoSection sectionTitle="General Information" data={data[object.name]} fields={object.generalInformation} />
+            <Header title={data.name} canBack={true}/>
+            <InfoSection sectionTitle="General Information" data={data} fields={object.generalInformation} />
             {
                 object.relations.map((relation, index) => (
                     <InfoSection
                         key={index}
                         sectionTitle={relation.displayName}
-                        data={data[object.name][relation.connection][relation.name]} fields={relation.information} />
+                        data={data[relation.connection]} fields={relation.information} />
                 ))
             }
         </div>
