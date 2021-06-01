@@ -8,6 +8,7 @@ export function StarWarsListInfiniteScroll({object}) {
     const [page, setPage] = useState(1);
     const [locked, setLock] = useState(false);
     const { loading, error, data, fetchMore } = useQuery(object.query);
+    const [end, setEnd] = useState(false);
     const loader = useRef(null);
 
     useEffect(() => {
@@ -28,8 +29,13 @@ export function StarWarsListInfiniteScroll({object}) {
         const target = entities[0];
         
         if (target.isIntersecting) { 
-            setLock((locked) => true);
-            setPage((page) => page + 1);
+            setLock(true);
+            setPage(page + 1);
+            window.setTimeout(() => {
+                if (!end) {
+                    setLock(false);
+                }
+            }, 500);
         }
     }
 
@@ -39,7 +45,13 @@ export function StarWarsListInfiniteScroll({object}) {
                 variables: {
                     cursor: data[object.field].pageInfo.endCursor,
                 },
-            }).then((res) => console.log(res), (err) => console.log(err))
+            }).then(
+                (res) => {
+                    if (data[object.field].pageInfo && !data[object.field].pageInfo.hasNextPage) {
+                        setEnd(true);
+                    }
+                }
+            )
         }
     }, [page])
 
@@ -53,9 +65,16 @@ export function StarWarsListInfiniteScroll({object}) {
                     <ItemCell key={i} data={node} object={object}/>
                 ))
             }
-            <div className="loading" ref={loader}>
-                <LoadingCell/>
-           </div>
+            {
+                !end? (
+                    <div className="loading" ref={loader}>
+                        <LoadingCell/>
+                    </div>
+                ):(
+                    <div className="loading" ref={loader}></div>
+                )
+            }
+            
         </div>
         
     )

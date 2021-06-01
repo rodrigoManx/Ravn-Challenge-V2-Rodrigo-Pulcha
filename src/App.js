@@ -20,7 +20,8 @@ const cache = new InMemoryCache({
 
 
 const client = new ApolloClient({
-  uri: 'https://swapi-graphql.netlify.app/.netlify/functions/index',
+  uri: 'http://localhost:8000/graphql',
+  /* uri: 'https://swapi-graphql.netlify.app/.netlify/functions/index', */
   cache: cache
 });
 
@@ -31,9 +32,9 @@ function App() {
       <BrowserRouter>
         <div className="App">
           <Switch>
-            <Route exact path="/" component={StarWarsHome}/>
-            <Route exact path="/list/:object" component={StarWarsList}/>
-            <Route exact path="/detail/:object/:id" component={StarWarsDetail}/>
+            <Route exact path="/grapql-mode" component={StarWarsHome}/>
+            <Route exact path="/grapql-mode/list/:object" component={StarWarsList}/>
+            <Route exact path="/grapql-mode/detail/:object/:id" component={StarWarsDetail}/>
           </Switch>
         </div>
       </BrowserRouter>

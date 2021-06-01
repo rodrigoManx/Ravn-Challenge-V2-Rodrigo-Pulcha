@@ -31,7 +31,7 @@ export function StarWarsItemDetail({id, object, screen}) {
                     <InfoSection
                         key={index}
                         sectionTitle={relation.displayName}
-                        data={data[object.name][relation.connection][relation.name]} fields={relation.information} />
+                        data={data[object.name][relation.connection]['edges']} fields={relation.information} />
                 ))
             }
         </div>

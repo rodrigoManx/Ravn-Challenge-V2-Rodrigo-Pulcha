@@ -8,8 +8,8 @@ const OBJECTS = {
         name: "person",
         query: STAR_WARS_PERSON,
         relations: [
-            {connection: 'vehicleConnection', name: 'vehicles', information: "name", displayName: "Vehicles"},
-            {connection: 'starshipConnection', name: 'starships', information: "name", displayName: "Starships"},
+            {connection: 'vehicles', name: 'vehicles', information: "name", displayName: "Vehicles"},
+            {connection: 'starships', name: 'starships', information: "name", displayName: "Starships"},
         ],
         generalInformation: [
             { property: 'eyeColor', displayName: "Eye Color"},
@@ -22,8 +22,8 @@ const OBJECTS = {
         name: "starship",
         query: STAR_WARS_STARSHIP,
         relations: [
-            {connection: 'pilotConnection', name: 'pilots', information: "name", displayName: "Pilots"},
-            {connection: 'filmConnection', name: 'films', information: "title", displayName: "Films"},
+            {connection: 'pilots', name: 'pilots', information: "name", displayName: "Pilots"},
+            {connection: 'films', name: 'films', information: "name", displayName: "Films"},
         ],
         generalInformation: [
             { property: 'model', displayName: "Model"},

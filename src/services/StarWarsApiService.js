@@ -42,7 +42,7 @@ export const STAR_WARS_STARSHIPS = gql`
 `;
 
 export const STAR_WARS_PERSON = gql`
-  query Person($id: ID){
+  query Person($id: ID!){
     person(id: $id){
       name
       gender
@@ -50,14 +50,18 @@ export const STAR_WARS_PERSON = gql`
       eyeColor
       skinColor
       birthYear
-      vehicleConnection{
-        vehicles {
-          name
+      starships {
+        edges {
+          node {
+            name
+          }
         }
       }
-      starshipConnection{
-        starships{
-          name
+      vehicles {
+        edges {
+          node {
+            name
+          }
         }
       }
     } 
@@ -65,7 +69,7 @@ export const STAR_WARS_PERSON = gql`
 `;
 
 export const STAR_WARS_STARSHIP = gql`
-  query Starship($id: ID){
+  query Starship($id: ID!){
     starship(id: $id){
       name
       model
@@ -73,14 +77,18 @@ export const STAR_WARS_STARSHIP = gql`
       length
       crew
       cargoCapacity
-      filmConnection{
-        films {
-          title
+      films {
+        edges {
+          node {
+            name
+          }
         }
       }
-      pilotConnection{
-        pilots{
-          name
+      pilots {
+        edges {
+          node {
+            name
+          }
         }
       }
     } 

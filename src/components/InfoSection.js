@@ -16,7 +16,7 @@ export function InfoSection({sectionTitle, data, fields}) {
             {
                 Array.isArray(data)? (
                     data.map((element, i) => (
-                        <DataCell key={i} value="" property={element[fields]}/>        
+                        <DataCell key={i} value="" property={element['node'][fields]}/>        
                     ))
                 ):(
                     fields.map((element, i) => (

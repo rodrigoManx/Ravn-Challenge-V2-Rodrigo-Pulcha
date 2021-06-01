@@ -42,7 +42,7 @@ export function NoticeCell({text}) {
 }
 
 export function ItemCell({data, object}) {
-    const path = object.pathKey && data[object.pathKey]? object.path + data[object.pathKey] : data.path;
+    const path = "/grapql-mode" + (object.pathKey && data[object.pathKey]? object.path + data[object.pathKey] : data.path);
     const description = object.description? object.description(data) : data.description;
     return (
         data.name && path?(
