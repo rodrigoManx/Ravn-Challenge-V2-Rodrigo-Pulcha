@@ -8,7 +8,11 @@ export const STAR_WARS_PEOPLE = gql`
             id
             name
             species {
-              name
+              edges {
+                node {
+                  name
+                }
+              }
             }
             homeworld {
               name
@@ -80,7 +84,7 @@ export const STAR_WARS_STARSHIP = gql`
       films {
         edges {
           node {
-            name
+            title
           }
         }
       }

@@ -23,7 +23,7 @@ const OBJECTS = {
         path: "/detail/person/",
         pathKey: "id",
         description: (data) => {
-            let specie = data.species? data.species.name : "Human";
+            let specie = data.species.edges.length > 0? data.species.edges[0].node.name : "Human";
             let homeworld = data.homeworld? data.homeworld.name : "Tatooine";
             return specie + " from " + homeworld;
         }

@@ -23,7 +23,7 @@ const OBJECTS = {
         query: STAR_WARS_STARSHIP,
         relations: [
             {connection: 'pilots', name: 'pilots', information: "name", displayName: "Pilots"},
-            {connection: 'films', name: 'films', information: "name", displayName: "Films"},
+            {connection: 'films', name: 'films', information: "title", displayName: "Films"},
         ],
         generalInformation: [
             { property: 'model', displayName: "Model"},
